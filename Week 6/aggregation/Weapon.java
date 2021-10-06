@@ -6,6 +6,7 @@ public class Weapon {
 
     public Weapon(int damage) {
         this.damage = damage;
+        
     }
 
     public void giveDamage() {
