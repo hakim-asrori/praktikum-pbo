@@ -21,6 +21,14 @@ public class DosenController {
 		}
 	}
 
+	public void showBy() {
+		for(DosenModel hasil : md) {
+			System.out.println("\tNama : " + hasil.getNama());
+			System.out.println("\tNIDN : " + hasil.getNidn());
+			System.out.println("\tJurusan : " + hasil.getJurusan());
+		}
+	}
+
 	public void edit(int index, String nama, String jurusan, String nidn) {
 		this.md.set(index, new DosenModel(nama, jurusan, nidn));
 	}

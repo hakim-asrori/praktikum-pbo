@@ -1,33 +1,28 @@
 package view;
 
 import java.util.*;
-import view.MainView;
 import controller.BukuController;
 
 public class BukuView {
-	private Scanner input = new Scanner(System.in);
 	private BukuController bc = new BukuController();
 
 	public void create() {
 		System.out.print("\nMasukan data yang ingin ditambahkan : ");
 		try {
-			int jumlah = this.input.nextInt();
-
-			for (int i = 0; i < jumlah; i++) {
 				System.out.print("\nMasukan kode buku : ");
-				String kode = this.input.next();
+				String kode = new Scanner(System.in).nextLine();
 
 				System.out.print("Masukan judul buku : ");
-				String judul = this.input.next();
+				String judul = new Scanner(System.in).nextLine();
 
 				System.out.print("Masukan pengarang buku : ");
-				String pengarang = this.input.next();
+				String pengarang = new Scanner(System.in).nextLine();
 
 				System.out.print("Masukan penerbit buku : ");
-				String penerbit = this.input.next();
+				String penerbit = new Scanner(System.in).nextLine();
 
 				this.bc.store(kode, judul, pengarang, penerbit);
-			}
+
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
 		} catch (Exception e) {
@@ -44,19 +39,19 @@ public class BukuView {
 		this.bc.show();
 
 		System.out.print("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
-		System.out.print("\nMasukan kode buku : ");
-		String kodeNew = this.input.next();
+		System.out.print("Masukan kode buku : ");
+		String kodeNew = new Scanner(System.in).next();
 
 		System.out.print("Masukan judul buku : ");
-		String judulNew = this.input.next();
+		String judulNew = new Scanner(System.in).nextLine();
 
 		System.out.print("Masukan pengarang buku : ");
-		String pengarangNew = this.input.next();
+		String pengarangNew = new Scanner(System.in).nextLine();
 
 		System.out.print("Masukan penerbit buku : ");
-		String penerbitNew = this.input.next();
+		String penerbitNew = new Scanner(System.in).nextLine();
 
 		this.bc.edit(index, kodeNew, judulNew, pengarangNew, penerbitNew);
 		System.out.print("\033[H\033[2J");
@@ -67,7 +62,7 @@ public class BukuView {
 		this.bc.show();
 
 		System.out.println("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
 		this.bc.delete(index);
 		System.out.print("\033[H\033[2J");
@@ -86,7 +81,7 @@ public class BukuView {
 		System.out.print("Pilih menu : ");
 		
 		try {
-			int pilihan = this.input.nextInt();
+			int pilihan = new Scanner(System.in).nextInt();
 
 			switch(pilihan) {
 				case 0:

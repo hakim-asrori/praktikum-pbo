@@ -1,28 +1,22 @@
 package view;
 
 import java.util.*;
-import view.MainView;
 import controller.MahasiswaController;
 
 public class MahasiswaView {
-	private Scanner input = new Scanner(System.in);
 	private MahasiswaController mc = new MahasiswaController();
 
 	public void create() {
 		System.out.print("\nMasukan data yang ingin ditambahkan : ");
 		try {
-			int jumlah = this.input.nextInt();
-
-			for (int i = 0; i < jumlah; i++) {
 				System.out.print("\nMasukan nama : ");
-				String nama = this.input.next();
+				String nama = new Scanner(System.in).nextLine();
 				System.out.print("Masukan jurusan : ");
-				String jurusan = this.input.next();
+				String jurusan = new Scanner(System.in).nextLine();
 				System.out.print("Masukan nim : ");
-				String nim = this.input.next();
+				String nim = new Scanner(System.in).nextLine();
 
 				this.mc.store(nama, jurusan, nim);
-			}
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
 		} catch (Exception e) {
@@ -39,14 +33,14 @@ public class MahasiswaView {
 		this.mc.show();
 
 		System.out.println("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
 		System.out.print("\nMasukan nama : ");
-		String newNama = this.input.next();
+		String newNama = new Scanner(System.in).nextLine();
 		System.out.print("Masukan jurusan : ");
-		String newJurusan = this.input.next();
+		String newJurusan = new Scanner(System.in).nextLine();
 		System.out.print("Masukan nim : ");
-		String newNim = this.input.next();
+		String newNim = new Scanner(System.in).nextLine();
 
 		this.mc.edit(index, newNama, newJurusan, newNim);
 		System.out.print("\033[H\033[2J");
@@ -57,7 +51,7 @@ public class MahasiswaView {
 		this.mc.show();
 
 		System.out.print("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
 		this.mc.delete(index);
 		System.out.print("\033[H\033[2J");
@@ -76,7 +70,7 @@ public class MahasiswaView {
 		System.out.print("Pilih menu : ");
 		
 		try {
-			int pilihan = this.input.nextInt();
+			int pilihan = new Scanner(System.in).nextInt();
 
 			switch(pilihan) {
 				case 0:

@@ -1,28 +1,29 @@
 package controller;
 
 import java.util.*;
-import model.DosenModel;
+import model.BukuModel;
 
-public class DosenController {
+public class BukuController {
 
-	private ArrayList<DosenModel> md = new ArrayList<DosenModel>();
+	private ArrayList<BukuModel> md = new ArrayList<BukuModel>();
 
-	public void store(String nama, String jurusan, String nidn) {
-		this.md.add(new DosenModel(nama, jurusan, nidn));
+	public void store(String kode, String judul, String pengarang, String penerbit) {
+		this.md.add(new BukuModel(kode, judul, pengarang, penerbit));
 	}
 
 	public void show() {
 		int no = 0;
-		for(DosenModel hasil : md) {
+		for(BukuModel hasil : md) {
 			System.out.print(no++ + ")");
-			System.out.println("\tNama : " + hasil.getNama());
-			System.out.println("\tNIDN : " + hasil.getNidn());
-			System.out.println("\tJurusan : " + hasil.getJurusan());
+			System.out.println("\t Kode buku : " + hasil.getKode());
+			System.out.println("\t Judul buku : " + hasil.getJudul());
+			System.out.println("\t Pengarang buku : " + hasil.getPengarang());
+			System.out.println("\t Penerbit buku : " + hasil.getPenerbit());
 		}
 	}
 
-	public void edit(int index, String nama, String jurusan, String nidn) {
-		this.md.set(index, new DosenModel(nama, jurusan, nidn));
+	public void edit(int index, String kode, String judul, String pengarang, String penerbit) {
+		this.md.set(index, new BukuModel(kode, judul, pengarang, penerbit));
 	}
 
 	public void delete(int index) {

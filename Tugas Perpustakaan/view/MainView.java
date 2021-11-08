@@ -46,14 +46,15 @@ public class MainView {
 				case 3:
 				System.out.print("\033[H\033[2J");
 				System.out.flush();
-				// Buku b = new Buku();
+				BukuView bv = new BukuView();
+				bv.showMenu();
 				break;
 
 				case 4:
 				System.out.print("\033[H\033[2J");
 				System.out.flush();
-				BukuView b = new BukuView();
-				b.showMenu();
+				// BukuView b = new BukuView();
+				// b.showMenu();
 				break;
 
 				case 5:

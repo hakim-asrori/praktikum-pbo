@@ -1,28 +1,22 @@
 package view;
 
 import java.util.*;
-import view.MainView;
 import controller.DosenController;
 
 public class DosenView {
-	private Scanner input = new Scanner(System.in);
 	private DosenController dc = new DosenController();
 
 	public void create() {
 		System.out.print("\nMasukan data yang ingin ditambahkan : ");
 		try {
-			int jumlah = this.input.nextInt();
-
-			for (int i = 0; i < jumlah; i++) {
 				System.out.print("\nMasukan nama : ");
-				String nama = this.input.next();
+				String nama = new Scanner(System.in).nextLine();
 				System.out.print("Masukan jurusan : ");
-				String jurusan = this.input.next();
+				String jurusan = new Scanner(System.in).nextLine();
 				System.out.print("Masukan nidn : ");
-				String nidn = this.input.next();
+				String nidn = new Scanner(System.in).nextLine();
 
 				this.dc.store(nama, jurusan, nidn);
-			}
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
 		} catch (Exception e) {
@@ -39,25 +33,29 @@ public class DosenView {
 		this.dc.show();
 
 		System.out.print("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
 		System.out.print("\nMasukan nama : ");
-		String newNama = this.input.next();
+		String newNama = new Scanner(System.in).nextLine();
 		System.out.print("Masukan jurusan : ");
-		String newJurusan = this.input.next();
+		String newJurusan = new Scanner(System.in).nextLine();
 		System.out.print("Masukan nidn : ");
-		String newNidn = this.input.next();
+		String newNidn = new Scanner(System.in).nextLine();
 
 		this.dc.edit(index, newNama, newJurusan, newNidn);
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	}
 
+	public void showBy() {
+		this.dc.showBy();
+	}
+
 	public void delete() {
 		this.dc.show();
 
 		System.out.println("\n Masukan index (0..) : ");
-		int index = this.input.nextInt();
+		int index = new Scanner(System.in).nextInt();
 
 		this.dc.delete(index);
 		System.out.print("\033[H\033[2J");
@@ -76,7 +74,7 @@ public class DosenView {
 		System.out.print("Pilih menu : ");
 		
 		try {
-			int pilihan = this.input.nextInt();
+			int pilihan = new Scanner(System.in).nextInt();
 
 			switch(pilihan) {
 				case 0:
@@ -109,6 +107,13 @@ public class DosenView {
 				System.out.print("\033[H\033[2J");
 				System.out.flush();
 				delete();
+				showMenu();
+				break;
+
+				case 5:
+				System.out.print("\033[H\033[2J");
+				System.out.flush();
+				showBy();
 				showMenu();
 				break;
 
